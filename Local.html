@@ -11,6 +11,32 @@
 <body>
     <h1>Hello1</h1>
     <div id="chat-container">
+	    <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		// Required if you want labels in a language that’s different from your user’s context.
+		//embedded_svc.menu.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		embedded_svc.menu.init(
+			'https://ca1729828676966.my.salesforce.com',
+			'https://d.la3-c2-ia7.salesforceliveagent.com/chat',
+			gslbBaseURL,
+			'00DHu00000B48m6',
+			'SDO_Standard_Channel_Menu'
+		);
+	};
+
+	if (!window.embedded_svc || !window.embedded_svc.menu) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://ca1729828676966.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
         <!-- <script src="Local.js"></script> -->
        <script type='text/javascript'>
 	function initEmbeddedMessaging() {
